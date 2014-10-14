@@ -241,7 +241,11 @@
 },
 {
   "id": 5,
-  "result": {},
+  "error" : {
+    "code" : -32602,
+    "message" : "Some arguments of method 'Network.enable' can't be processed",
+    "data" : ["Network handler is not available."]
+  },
   "direction": "<="
 },
 {

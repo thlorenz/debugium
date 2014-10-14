@@ -43,7 +43,6 @@ test('\ndispatching messages for click-me-init one at a time', function (t) {
     t.pass('handles msg  ' + insp(currentMsg))
     t.equal(currentMsg.id, msg.id, 'replies with correct id')
     inspect(msg)
-    inspect(expectedMsg)
     t.deepEqual(msg, expectedMsg, 'result is as expected')
     dispatchNext()
   }
