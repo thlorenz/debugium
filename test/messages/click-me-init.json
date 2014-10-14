@@ -23,14 +23,14 @@
 {
   "id": 2,
   "result": {
-    "result": true
+    "result": false
   },
   "direction": "<="
 },
 {
   "id": 3,
   "result": {
-    "result": true
+    "result": false
   },
   "direction": "<="
 },

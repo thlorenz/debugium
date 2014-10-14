@@ -2,40 +2,13 @@
 
 /* jshint -W079 */
 var WebSocket = require('ws')
-  , fs        = require('fs')
+  , sortOutMessages = require('../common/sort-out-messages')
   
 var PATH     = 'ws://localhost:9221/devtools/page/E17CB808-0D24-4EBD-A9CC-6232A2C3EEEA'
   , FILE     = 'click-me-init'
   , START    = 1
   , END      = 10
   , DELAY    = 200
-
-function byIdThenDirection(a, b) {
-  var aid = parseInt(a.id)
-    , bid = parseInt(b.id)
-
-  if (aid < bid) return -1;
-
-  if (aid === bid && a.direction === '=>') return -1;
-  return 1;
-}
-
-function sortOutMessages(file) {
-  var json = '[\n' + fs.readFileSync(__dirname + '/../messages/' + file + '.json', 'utf8').slice(0, -2) + ']'
-  var messages = JSON.parse(json).sort(byIdThenDirection);
-
-  var outgoing = {}
-    , incoming = {} 
-
-  messages.forEach(function (msg) {
-    var direction = msg.direction;
-    delete msg.direction;
-    if (direction === '=>') outgoing[msg.id] = msg;
-    else                    incoming[msg.id] = msg;
-  })
-
-  return { outgoing: outgoing, incoming: incoming };
-}
 
 function inspect(obj, depth) {
   return require('util').inspect(obj, false, depth || 5, true);
