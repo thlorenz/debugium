@@ -3,7 +3,7 @@
 
 var test = require('tap').test
 
-var ibd = require('../lib/InspectorBackendDispatcher/InspectorBackendDispatcher')()
+var ibd = require('../').inspectorBackendDispatcher()
   , sortOutMessages = require('./common/sort-out-messages')
 
 var messages = sortOutMessages('click-me-init')
@@ -26,7 +26,23 @@ function insp(obj, depth) {
   return require('util').inspect(obj, false, depth || 5, true)
 }
 
+function writeMsg(msg, method) {
+  require('fs').writeFileSync(__dirname + '/tmp/' + method + '.json',  JSON.stringify(msg, null, 2), 'utf8')
+}
+
+
 test('\ndispatching messages for click-me-init one at a time', function (t) {
+  function assertResourceTree(msg) {
+    var frame = msg.result.frame;
+    var resources = msg.result.resources;
+    t.ok(frame.url.indexOf(__filename), 'frame url is main file') 
+    t.equal(frame.loaderId, process.pid, 'frame id is process pid')
+    t.ok(resources.length > 9, 'has at least 10 resources')
+    t.ok(resources[0].url, 'with url')
+    t.equal(resources[0].type, 'Script', 'type Script')
+    t.equal(resources[0].mimeType, 'application/javascript', 'mimeType application/javascript')
+  }
+
   var currentMsg, idx = 0;
 
   ibd.on('message', onmessage)
@@ -42,8 +58,8 @@ test('\ndispatching messages for click-me-init one at a time', function (t) {
     var expectedMsg = incomingWithId(msg.id)
     t.pass('handles msg  ' + insp(currentMsg))
     t.equal(currentMsg.id, msg.id, 'replies with correct id')
-    inspect(msg)
-    t.deepEqual(msg, expectedMsg, 'result is as expected')
+    if (currentMsg.method === 'Page.getResourceTree') assertResourceTree(msg);
+    else                                              t.deepEqual(msg, expectedMsg, 'result is as expected')
     dispatchNext()
   }
 

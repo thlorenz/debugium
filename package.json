@@ -16,7 +16,10 @@
   },
   "homepage": "https://github.com/thlorenz/debugium",
   "dependencies": {
+    "glob": "~4.0.6",
+    "mothership": "~0.3.0",
     "nan": "~1.3.0",
+    "runnel": "~0.5.2",
     "ws": "~0.4.32"
   },
   "devDependencies": {
