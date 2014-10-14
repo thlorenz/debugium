@@ -232,7 +232,11 @@
 },
 {
   "id": 4,
-  "result": {},
+  "error": {
+    "code": -32602,
+    "message" : "Some arguments of method 'Console.enable' can't be processed",
+    "data" : ["Console handler is not available."]
+  },
   "direction": "<="
 },
 {
