@@ -4,6 +4,7 @@
   "description": "TBD",
   "main": "index.js",
   "scripts": {
+    "start": "node ./lib/server/main",
     "test-main": "tap test/*.js",
     "test-0.8": "nave use 0.8 npm run test-main",
     "test-0.10": "nave use 0.10 npm run test-main",
