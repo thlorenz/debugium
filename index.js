@@ -4,6 +4,7 @@ var InspectorBackendDispatcher = require('./lib/InspectorBackendDispatcher/Inspe
   , InspectorConsoleAgent = require('./lib/inspector/InspectorConsoleAgent.js')
   , InspectorNetworkAgent = require('./lib/inspector/InspectorNetworkAgent.js')
   , InspectorHeapProfilerAgent = require('./lib/inspector/InspectorHeapProfilerAgent.js')
+  , InspectorDebuggerAgent = require('./lib/inspector/InspectorDebuggerAgent.js')
 
 exports.inspectorBackendDispatcher = function inspectorBackendDispatcher() {
   return new InspectorBackendDispatcher({
@@ -11,5 +12,6 @@ exports.inspectorBackendDispatcher = function inspectorBackendDispatcher() {
     , consoleAgent      : new InspectorConsoleAgent()
     , networkAgent      : new InspectorNetworkAgent()
     , heapProfilerAgent : new InspectorHeapProfilerAgent()
+    , debuggerAgent     : new InspectorDebuggerAgent()
   })
 }

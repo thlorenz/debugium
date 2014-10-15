@@ -1,0 +1,4 @@
+-Isrc/
+-Inode_modules/nan/
+-I../node-0.12/include/
+-I../node-0.12/deps/v8/include/

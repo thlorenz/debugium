@@ -10,7 +10,9 @@ lib-cov
 pids
 logs
 results
+tmp
 
 npm-debug.log
 node_modules
 node-0.12
+.nadconfig.mk
