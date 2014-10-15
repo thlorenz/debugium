@@ -1,0 +1,17 @@
+{
+    "extensions": [
+        {
+            "type": "drawer-view",
+            "name": "devices",
+            "title": "Devices",
+            "order": "12",
+            "experiment": "devicesPanel",
+            "className": "WebInspector.DevicesView"
+        }
+    ],
+    "dependencies": [
+        "sdk",
+        "ui"
+    ],
+    "scripts": ["DevicesView.js"]
+}
