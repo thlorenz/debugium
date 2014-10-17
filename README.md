@@ -27,6 +27,7 @@ npm start
 
 - [building chromium](https://github.com/thlorenz/debugium/blob/master/docs/building-chromium.md)
 - [generating front end](https://github.com/thlorenz/debugium/blob/master/docs/generating-front-end.md)
+- [debugging debugium](https://github.com/thlorenz/debugium/blob/master/docs/debugging-debugium.md)
 
 ## License
 
