@@ -1,5 +1,5 @@
 # debugium
-[![build status](https://secure.travis-ci.org/thlorenz/debugium.png)](http://travis-ci.org/thlorenz/debugium)
+<!-- [![build status](https://secure.travis-ci.org/thlorenz/debugium.png)](http://travis-ci.org/thlorenz/debugium) -->
 
 TBD
 
