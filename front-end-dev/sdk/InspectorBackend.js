@@ -938,7 +938,7 @@ InspectorBackendClass.DispatcherPrototype.prototype = {
 
 InspectorBackendClass.Options = {
     dumpInspectorTimeStats: false,
-    dumpInspectorProtocolMessages: false,
+    dumpInspectorProtocolMessages: true,
     suppressRequestErrors: false
 }
 
